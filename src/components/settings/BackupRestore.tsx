@@ -75,8 +75,8 @@ export function BackupRestore() {
 
   return (
     <section>
-      <h2 className="text-base font-semibold text-gray-900">Data Backup</h2>
-      <p className="mt-1 text-sm text-gray-500">
+      <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">Data Backup</h2>
+      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
         Export all data as JSON or restore from a previous backup.
       </p>
 

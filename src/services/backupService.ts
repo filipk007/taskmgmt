@@ -1,5 +1,6 @@
 import type { BackupData } from '@/types/common';
 import { getTaskRepository, getProjectRepository, getClientRepository } from '@/repositories';
+import { randomProjectColor } from '@/lib/utils';
 
 const BACKUP_VERSION = 1;
 
@@ -40,7 +41,12 @@ export async function importBackup(data: BackupData): Promise<{
     await clientRepo.bulkCreate(data.clients);
   }
   if (data.projects.length > 0) {
-    await projectRepo.bulkCreate(data.projects);
+    // Ensure all projects have a color (handles old backups)
+    const projectsWithColors = data.projects.map((p) => ({
+      ...p,
+      color: p.color || randomProjectColor(),
+    }));
+    await projectRepo.bulkCreate(projectsWithColors);
   }
   if (data.tasks.length > 0) {
     await taskRepo.bulkCreate(data.tasks);

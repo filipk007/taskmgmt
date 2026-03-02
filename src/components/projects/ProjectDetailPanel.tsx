@@ -85,13 +85,13 @@ export function ProjectDetailPanel({ project, onClose, onEdit }: ProjectDetailPa
       <Drawer isOpen={!!project} onClose={onClose}>
         <div className="flex h-full flex-col">
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
-            <h2 className="text-lg font-semibold text-gray-900 line-clamp-1">
+          <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 px-6 py-4">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 line-clamp-1">
               {project.name}
             </h2>
             <button
               onClick={onClose}
-              className="rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+              className="rounded-md p-1 text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-600 dark:hover:text-gray-400"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -120,10 +120,10 @@ export function ProjectDetailPanel({ project, onClose, onEdit }: ProjectDetailPa
             {/* Description */}
             {project.description && (
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                <h4 className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
                   Description
                 </h4>
-                <p className="mt-1 text-sm text-gray-700 whitespace-pre-wrap">
+                <p className="mt-1 text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
                   {project.description}
                 </p>
               </div>
@@ -132,14 +132,14 @@ export function ProjectDetailPanel({ project, onClose, onEdit }: ProjectDetailPa
             {/* Clients */}
             {projectClients.length > 0 && (
               <div>
-                <h4 className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                <h4 className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
                   Clients
                 </h4>
                 <div className="mt-1.5 flex flex-wrap gap-1.5">
                   {projectClients.map((client) => (
                     <span
                       key={client.id}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 dark:bg-gray-700 px-2.5 py-1 text-xs font-medium text-gray-700 dark:text-gray-300"
                     >
                       <span
                         className="h-2.5 w-2.5 rounded-full"
@@ -154,7 +154,7 @@ export function ProjectDetailPanel({ project, onClose, onEdit }: ProjectDetailPa
 
             {/* Tasks */}
             <div>
-              <h4 className="text-xs font-medium uppercase tracking-wide text-gray-500">
+              <h4 className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
                 Tasks ({projectTasks.length})
               </h4>
               {projectTasks.length === 0 ? (
@@ -162,7 +162,7 @@ export function ProjectDetailPanel({ project, onClose, onEdit }: ProjectDetailPa
                   No tasks assigned to this project yet.
                 </p>
               ) : (
-                <ul className="mt-2 divide-y divide-gray-100">
+                <ul className="mt-2 divide-y divide-gray-100 dark:divide-gray-800">
                   {projectTasks.map((task) => {
                     const client = task.clientId ? clientsMap[task.clientId] : null;
                     return (
@@ -178,8 +178,8 @@ export function ProjectDetailPanel({ project, onClose, onEdit }: ProjectDetailPa
                         <span
                           className={`text-sm flex-1 ${
                             task.status === TaskStatus.DONE
-                              ? 'text-gray-400 line-through'
-                              : 'text-gray-800'
+                              ? 'text-gray-400 dark:text-gray-500 line-through'
+                              : 'text-gray-800 dark:text-gray-100'
                           }`}
                         >
                           {task.name}
@@ -203,7 +203,7 @@ export function ProjectDetailPanel({ project, onClose, onEdit }: ProjectDetailPa
           </div>
 
           {/* Footer Actions */}
-          <div className="border-t border-gray-200 px-6 py-3 flex items-center gap-2">
+          <div className="border-t border-gray-200 dark:border-gray-700 px-6 py-3 flex items-center gap-2">
             <Button variant="secondary" size="sm" onClick={onEdit}>
               Edit
             </Button>

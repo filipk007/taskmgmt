@@ -56,7 +56,7 @@ export function ClientManager() {
   return (
     <section>
       <div className="flex items-center justify-between">
-        <h2 className="text-base font-semibold text-gray-900">Clients</h2>
+        <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">Clients</h2>
         <Button
           size="sm"
           onClick={() => {
@@ -69,11 +69,11 @@ export function ClientManager() {
       </div>
 
       {clients.length === 0 ? (
-        <p className="mt-4 text-sm text-gray-500">
+        <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
           No clients yet. Add one to create Kanban columns.
         </p>
       ) : (
-        <ul className="mt-4 divide-y divide-gray-200 rounded-lg border border-gray-200">
+        <ul className="mt-4 divide-y divide-gray-200 dark:divide-gray-700 rounded-lg border border-gray-200 dark:border-gray-700">
           {clients.map((client) => (
             <li key={client.id} className="flex items-center justify-between px-4 py-3">
               <div className="flex items-center gap-3">
@@ -81,7 +81,7 @@ export function ClientManager() {
                   className="h-4 w-4 rounded-full"
                   style={{ backgroundColor: client.color }}
                 />
-                <span className="text-sm font-medium text-gray-900">{client.name}</span>
+                <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{client.name}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Button

@@ -23,6 +23,7 @@ interface DbProject {
   id: string;
   name: string;
   description: string;
+  color: string;
   clientIds: string[];
   createdAt: string;
   completedAt: string;
@@ -45,6 +46,20 @@ db.version(1).stores({
   tasks: 'id, clientId, projectId, status, priority, deadline, *tags, orderIndex, createdAt, doneAt',
   projects: 'id, *clientIds, createdAt',
   clients: 'id, name, createdAt',
+});
+
+// v2: Add color field to projects (with migration for existing data)
+db.version(2).stores({
+  tasks: 'id, clientId, projectId, status, priority, deadline, *tags, orderIndex, createdAt, doneAt',
+  projects: 'id, *clientIds, createdAt',
+  clients: 'id, name, createdAt',
+}).upgrade((tx) => {
+  const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#f97316', '#eab308', '#22c55e', '#14b8a6', '#06b6d4', '#3b82f6', '#a855f7', '#ef4444'];
+  return tx.table('projects').toCollection().modify((project) => {
+    if (!project.color) {
+      project.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+  });
 });
 
 export { db };

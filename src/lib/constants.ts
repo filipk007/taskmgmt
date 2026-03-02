@@ -48,6 +48,21 @@ export const DEFAULT_CLIENT_COLORS = [
   '#3b82f6', // blue
 ];
 
+export const DEFAULT_PROJECT_COLORS = [
+  '#6366f1', // indigo
+  '#8b5cf6', // violet
+  '#ec4899', // pink
+  '#f43f5e', // rose
+  '#f97316', // orange
+  '#eab308', // yellow
+  '#22c55e', // green
+  '#14b8a6', // teal
+  '#06b6d4', // cyan
+  '#3b82f6', // blue
+  '#a855f7', // purple
+  '#ef4444', // red
+];
+
 export const AUTOSAVE_DEBOUNCE_MS = 300;
 export const UNDO_TTL_MS = 5000;
 export const DRAG_ACTIVATION_DISTANCE = 8;

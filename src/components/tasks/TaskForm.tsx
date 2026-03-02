@@ -116,7 +116,7 @@ export function TaskForm({ task }: TaskFormProps) {
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full border-0 px-0 text-lg font-semibold text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-0"
+          className="w-full border-0 bg-transparent px-0 text-lg font-semibold text-gray-900 dark:text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-0"
           placeholder="Task name"
         />
       </div>
@@ -124,7 +124,7 @@ export function TaskForm({ task }: TaskFormProps) {
       {/* Status + Priority row */}
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-medium text-gray-500 mb-1">Status</label>
+          <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Status</label>
           <Select
             options={statusOptions}
             value={status}
@@ -132,7 +132,7 @@ export function TaskForm({ task }: TaskFormProps) {
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-gray-500 mb-1">Priority</label>
+          <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Priority</label>
           <Select
             options={priorityOptions}
             value={priority}
@@ -143,7 +143,7 @@ export function TaskForm({ task }: TaskFormProps) {
 
       {/* Deadline */}
       <div>
-        <label className="block text-xs font-medium text-gray-500 mb-1">Deadline</label>
+        <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Deadline</label>
         <Input
           type="date"
           value={deadline}
@@ -153,7 +153,7 @@ export function TaskForm({ task }: TaskFormProps) {
 
       {/* Client */}
       <div>
-        <label className="block text-xs font-medium text-gray-500 mb-1">Client</label>
+        <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Client</label>
         <Select
           options={clientOptions}
           value={clientId}
@@ -172,7 +172,7 @@ export function TaskForm({ task }: TaskFormProps) {
 
       {/* Project */}
       <div>
-        <label className="block text-xs font-medium text-gray-500 mb-1">Project</label>
+        <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Project</label>
         <Select
           options={projectOptions}
           value={projectId}
@@ -182,25 +182,25 @@ export function TaskForm({ task }: TaskFormProps) {
 
       {/* Tags */}
       <div>
-        <label className="block text-xs font-medium text-gray-500 mb-1">Tags</label>
+        <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Tags</label>
         <TaskTagInput tags={tags} onChange={setTags} />
       </div>
 
       {/* Notes */}
       <div>
-        <label className="block text-xs font-medium text-gray-500 mb-1">Notes</label>
+        <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Notes</label>
         <TaskNotesEditor value={notes} onChange={setNotes} />
       </div>
 
       {/* Links */}
       <div>
-        <label className="block text-xs font-medium text-gray-500 mb-1">Links</label>
+        <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Links</label>
         <TaskLinksList links={links} onChange={setLinks} />
       </div>
 
       {/* Dependencies (visual only, read-only for now) */}
       <div>
-        <label className="block text-xs font-medium text-gray-500 mb-1">Dependencies (visual)</label>
+        <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Dependencies (visual)</label>
         <TaskDependencies dependencyIds={task.dependencies} />
       </div>
     </div>

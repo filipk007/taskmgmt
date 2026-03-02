@@ -38,12 +38,12 @@ export function ClientForm({ client, onClose }: ClientFormProps) {
   return (
     <Modal isOpen onClose={onClose}>
       <form onSubmit={handleSubmit}>
-        <h3 className="text-lg font-semibold text-gray-900">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
           {client ? 'Edit Client' : 'New Client'}
         </h3>
         <div className="mt-4 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Name</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
             <Input
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -53,14 +53,14 @@ export function ClientForm({ client, onClose }: ClientFormProps) {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Color</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Color</label>
             <div className="mt-2 flex flex-wrap gap-2">
               {DEFAULT_CLIENT_COLORS.map((c) => (
                 <button
                   key={c}
                   type="button"
                   className={`h-8 w-8 rounded-full border-2 transition-all ${
-                    color === c ? 'border-gray-900 scale-110' : 'border-transparent'
+                    color === c ? 'border-gray-900 dark:border-gray-100 scale-110' : 'border-transparent'
                   }`}
                   style={{ backgroundColor: c }}
                   onClick={() => setColor(c)}

@@ -8,6 +8,7 @@ import { useTaskStore } from '@/stores/taskStore';
 import { useProjectStore } from '@/stores/projectStore';
 import { useHydration } from '@/hooks/useHydration';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
+import { useThemeStore } from '@/stores/themeStore';
 
 interface AppShellProps {
   children: ReactNode;
@@ -18,6 +19,7 @@ export function AppShell({ children }: AppShellProps) {
 
   useEffect(() => {
     if (hydrated) {
+      useThemeStore.getState().hydrate();
       Promise.all([
         useClientStore.getState().hydrate(),
         useTaskStore.getState().hydrate(),
@@ -40,7 +42,7 @@ export function AppShell({ children }: AppShellProps) {
   }
 
   return (
-    <div className="flex h-screen flex-col md:flex-row overflow-hidden bg-gray-50">
+    <div className="flex h-screen flex-col md:flex-row overflow-hidden bg-gray-50 dark:bg-gray-900">
       <MobileNav />
       <Sidebar />
       <main className="flex-1 overflow-auto">{children}</main>

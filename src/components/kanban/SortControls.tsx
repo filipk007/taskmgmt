@@ -22,13 +22,13 @@ export function SortControls() {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs text-gray-500">Sort:</span>
+      <span className="text-xs text-gray-500 dark:text-gray-400">Sort:</span>
       <select
         value={kanbanSort.field}
         onChange={(e) =>
           setKanbanSort({ field: e.target.value as SortField, direction: kanbanSort.direction })
         }
-        className="rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 focus:border-indigo-500 focus:outline-none"
+        className="rounded border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs text-gray-700 dark:text-gray-300 focus:border-indigo-500 focus:outline-none"
       >
         {SORT_OPTIONS.map((opt) => (
           <option key={opt.value} value={opt.value}>
@@ -38,7 +38,7 @@ export function SortControls() {
       </select>
       <button
         onClick={toggleDirection}
-        className="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+        className="rounded p-1 text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-600 dark:hover:text-gray-400"
         title={kanbanSort.direction === 'asc' ? 'Ascending' : 'Descending'}
       >
         {kanbanSort.direction === 'asc' ? (

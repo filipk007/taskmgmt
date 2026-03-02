@@ -85,7 +85,7 @@ export function ProjectsList() {
     <div className="p-6">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-semibold text-gray-900">Projects</h1>
+        <h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100">Projects</h1>
         <Button
           size="sm"
           onClick={() => {
@@ -105,7 +105,7 @@ export function ProjectsList() {
           className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
             filterClientId === null
               ? 'bg-indigo-100 text-indigo-700'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200'
           }`}
         >
           All
@@ -119,7 +119,7 @@ export function ProjectsList() {
             className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium transition-colors ${
               filterClientId === client.id
                 ? 'bg-indigo-100 text-indigo-700'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200'
             }`}
           >
             <span
@@ -129,13 +129,13 @@ export function ProjectsList() {
             {client.name}
           </button>
         ))}
-        <span className="mx-1 h-4 w-px bg-gray-200" />
-        <label className="inline-flex items-center gap-1.5 text-xs text-gray-500 cursor-pointer">
+        <span className="mx-1 h-4 w-px bg-gray-200 dark:bg-gray-700" />
+        <label className="inline-flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 cursor-pointer">
           <input
             type="checkbox"
             checked={showCompleted}
             onChange={(e) => setShowCompleted(e.target.checked)}
-            className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+            className="rounded border-gray-300 dark:border-gray-600 text-indigo-600 focus:ring-indigo-500"
           />
           Show completed
         </label>

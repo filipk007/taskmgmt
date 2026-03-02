@@ -150,8 +150,8 @@ export function ArchiveView() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-semibold text-gray-900">Archive</h1>
-          <p className="text-sm text-gray-500">
+          <h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100">Archive</h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             {doneTasks.length} completed task{doneTasks.length !== 1 ? 's' : ''}
           </p>
         </div>
@@ -185,7 +185,7 @@ export function ArchiveView() {
             className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
               filterClientId === null
                 ? 'bg-indigo-100 text-indigo-700'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200'
             }`}
           >
             All
@@ -195,7 +195,7 @@ export function ArchiveView() {
             className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
               filterClientId === '__none__'
                 ? 'bg-indigo-100 text-indigo-700'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200'
             }`}
           >
             General
@@ -207,7 +207,7 @@ export function ArchiveView() {
               className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
                 filterClientId === c.id
                   ? 'bg-indigo-100 text-indigo-700'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200'
               }`}
             >
               <span className="h-2 w-2 rounded-full" style={{ backgroundColor: c.color }} />
@@ -220,7 +220,7 @@ export function ArchiveView() {
         <select
           value={filterPriority ?? ''}
           onChange={(e) => setFilterPriority((e.target.value || null) as TaskPriority | null)}
-          className="rounded-md border border-gray-300 px-2.5 py-1 text-xs focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          className="rounded-md border border-gray-300 dark:border-gray-600 px-2.5 py-1 text-xs focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
         >
           <option value="">All priorities</option>
           {Object.values(TaskPriority).map((p) => (
@@ -247,27 +247,27 @@ export function ArchiveView() {
         <div className="mt-4 overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-200 text-left text-xs font-medium uppercase tracking-wide text-gray-500">
+              <tr className="border-b border-gray-200 dark:border-gray-700 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
                 <th
-                  className="cursor-pointer px-3 py-2 hover:text-gray-700"
+                  className="cursor-pointer px-3 py-2 hover:text-gray-700 dark:hover:text-gray-300"
                   onClick={() => handleSort('name')}
                 >
                   Task <SortIcon field="name" />
                 </th>
                 <th
-                  className="cursor-pointer px-3 py-2 hover:text-gray-700"
+                  className="cursor-pointer px-3 py-2 hover:text-gray-700 dark:hover:text-gray-300"
                   onClick={() => handleSort('client')}
                 >
                   Client <SortIcon field="client" />
                 </th>
                 <th
-                  className="cursor-pointer px-3 py-2 hover:text-gray-700"
+                  className="cursor-pointer px-3 py-2 hover:text-gray-700 dark:hover:text-gray-300"
                   onClick={() => handleSort('priority')}
                 >
                   Priority <SortIcon field="priority" />
                 </th>
                 <th
-                  className="cursor-pointer px-3 py-2 hover:text-gray-700"
+                  className="cursor-pointer px-3 py-2 hover:text-gray-700 dark:hover:text-gray-300"
                   onClick={() => handleSort('doneAt')}
                 >
                   Completed <SortIcon field="doneAt" />
@@ -276,17 +276,17 @@ export function ArchiveView() {
                 <th className="px-3 py-2 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100">
+            <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
               {filteredTasks.map((task) => {
                 const client = task.clientId ? clientsMap[task.clientId] : null;
                 const project = task.projectId ? projectsMap[task.projectId] : null;
                 return (
-                  <tr key={task.id} className="hover:bg-gray-50 transition-colors">
+                  <tr key={task.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                     <td className="px-3 py-2.5">
                       <div className="flex items-center gap-2">
                         <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${PRIORITY_DOT_COLORS[task.priority]}`} />
                         <div>
-                          <p className="font-medium text-gray-900">{task.name}</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">{task.name}</p>
                           {project && (
                             <p className="text-xs text-gray-400">{project.name}</p>
                           )}
@@ -295,7 +295,7 @@ export function ArchiveView() {
                     </td>
                     <td className="px-3 py-2.5">
                       {client ? (
-                        <span className="inline-flex items-center gap-1 text-xs text-gray-600">
+                        <span className="inline-flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400">
                           <span
                             className="h-2 w-2 rounded-full"
                             style={{ backgroundColor: client.color }}
@@ -311,7 +311,7 @@ export function ArchiveView() {
                         {task.priority}
                       </Badge>
                     </td>
-                    <td className="px-3 py-2.5 text-xs text-gray-500">
+                    <td className="px-3 py-2.5 text-xs text-gray-500 dark:text-gray-400">
                       {task.doneAt ? new Date(task.doneAt).toLocaleDateString() : '—'}
                     </td>
                     <td className="px-3 py-2.5">
@@ -319,7 +319,7 @@ export function ArchiveView() {
                         {task.tags.slice(0, 3).map((tag) => (
                           <span
                             key={tag}
-                            className="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] text-gray-500"
+                            className="rounded bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 text-[10px] text-gray-500 dark:text-gray-400"
                           >
                             {tag}
                           </span>

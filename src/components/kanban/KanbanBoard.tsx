@@ -202,8 +202,8 @@ export function KanbanBoard() {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex items-center justify-between border-b border-gray-200 bg-white px-6 py-3">
-        <h1 className="text-lg font-semibold text-gray-900">Kanban Board</h1>
+      <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-6 py-3">
+        <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Kanban Board</h1>
         <SortControls />
       </div>
       <div className="flex-1 overflow-x-auto p-6">

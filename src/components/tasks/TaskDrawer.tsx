@@ -83,13 +83,13 @@ export function TaskDrawer() {
       {task ? (
         <div className="flex h-full flex-col">
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
-            <div className="text-xs text-gray-500">
+          <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 px-6 py-4">
+            <div className="text-xs text-gray-500 dark:text-gray-400">
               Created {formatDate(task.createdAt)}
             </div>
             <button
               onClick={closeTaskDrawer}
-              className="rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+              className="rounded-md p-1 text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-600 dark:hover:text-gray-300"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -103,7 +103,7 @@ export function TaskDrawer() {
           </div>
 
           {/* Footer actions */}
-          <div className="flex items-center justify-between border-t border-gray-200 px-6 py-3">
+          <div className="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 px-6 py-3">
             <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700 hover:bg-red-50" onClick={handleDelete}>
               Delete
             </Button>

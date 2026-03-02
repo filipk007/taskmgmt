@@ -40,7 +40,7 @@ export function Drawer({ isOpen, onClose, children, className, side = 'right' }:
       {/* Panel */}
       <div
         className={cn(
-          'fixed top-0 z-50 h-full w-full max-w-lg bg-white shadow-xl transition-transform duration-300 ease-in-out',
+          'fixed top-0 z-50 h-full w-full max-w-lg bg-white dark:bg-gray-800 shadow-xl transition-transform duration-300 ease-in-out',
           side === 'right' ? 'right-0' : 'left-0',
           isOpen
             ? 'translate-x-0'

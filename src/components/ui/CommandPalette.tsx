@@ -194,9 +194,9 @@ export function CommandPalette() {
       />
 
       {/* Palette */}
-      <div className="relative z-10 w-full max-w-lg rounded-xl bg-white shadow-2xl ring-1 ring-gray-200 overflow-hidden">
+      <div className="relative z-10 w-full max-w-lg rounded-xl bg-white dark:bg-gray-800 shadow-2xl ring-1 ring-gray-200 dark:ring-gray-700 overflow-hidden">
         {/* Search input */}
-        <div className="flex items-center border-b border-gray-200 px-4">
+        <div className="flex items-center border-b border-gray-200 dark:border-gray-700 px-4">
           <svg
             className="h-5 w-5 text-gray-400 shrink-0"
             fill="none"
@@ -216,7 +216,7 @@ export function CommandPalette() {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Search tasks, projects, navigate..."
-            className="flex-1 border-0 px-3 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-0"
+            className="flex-1 border-0 bg-transparent px-3 py-3 text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-0"
           />
           <kbd className="hidden sm:inline-flex items-center rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[10px] font-medium text-gray-400">
             ESC
@@ -236,7 +236,7 @@ export function CommandPalette() {
                 onClick={() => executeItem(item)}
                 onMouseEnter={() => setSelectedIndex(i)}
                 className={`flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors ${
-                  i === selectedIndex ? 'bg-indigo-50' : 'hover:bg-gray-50'
+                  i === selectedIndex ? 'bg-indigo-50 dark:bg-indigo-950/40' : 'hover:bg-gray-50 dark:hover:bg-gray-700'
                 }`}
               >
                 {iconMap[item.icon]}
@@ -244,8 +244,8 @@ export function CommandPalette() {
                   <p
                     className={`text-sm truncate ${
                       i === selectedIndex
-                        ? 'text-indigo-900 font-medium'
-                        : 'text-gray-900'
+                        ? 'text-indigo-900 dark:text-indigo-300 font-medium'
+                        : 'text-gray-900 dark:text-gray-100'
                     }`}
                   >
                     {item.label}
@@ -265,7 +265,7 @@ export function CommandPalette() {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center gap-4 border-t border-gray-100 px-4 py-2 text-[10px] text-gray-400">
+        <div className="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 px-4 py-2 text-[10px] text-gray-400">
           <span><kbd className="font-medium">&uarr;&darr;</kbd> navigate</span>
           <span><kbd className="font-medium">&crarr;</kbd> select</span>
           <span><kbd className="font-medium">esc</kbd> close</span>

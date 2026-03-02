@@ -24,8 +24,8 @@ export function ConfirmDialog({
 }: ConfirmDialogProps) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-      <p className="mt-2 text-sm text-gray-600">{message}</p>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{message}</p>
       <div className="mt-4 flex justify-end gap-3">
         <Button variant="secondary" onClick={onClose}>
           Cancel

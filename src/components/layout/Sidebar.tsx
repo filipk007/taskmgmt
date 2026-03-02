@@ -1,6 +1,7 @@
 'use client';
 
 import { SidebarLink } from './SidebarLink';
+import { ThemeToggle } from './ThemeToggle';
 
 const KanbanIcon = () => (
   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -29,17 +30,18 @@ const SettingsIcon = () => (
 
 export function Sidebar() {
   return (
-    <aside className="hidden md:flex h-full w-56 shrink-0 flex-col border-r border-gray-200 bg-white">
+    <aside className="hidden md:flex h-full w-56 shrink-0 flex-col border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
       <div className="flex h-14 items-center px-4">
-        <h1 className="text-lg font-bold text-gray-900">TaskMgmt</h1>
+        <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100">TaskMgmt</h1>
       </div>
       <nav className="flex-1 space-y-1 px-3 py-2">
         <SidebarLink href="/kanban" icon={<KanbanIcon />} label="Kanban" />
         <SidebarLink href="/projects" icon={<ProjectsIcon />} label="Projects" />
         <SidebarLink href="/archive" icon={<ArchiveIcon />} label="Archive" />
       </nav>
-      <div className="border-t border-gray-200 px-3 py-2">
+      <div className="border-t border-gray-200 dark:border-gray-700 px-3 py-2 space-y-1">
         <SidebarLink href="/settings" icon={<SettingsIcon />} label="Settings" />
+        <ThemeToggle />
       </div>
     </aside>
   );
@@ -47,13 +49,14 @@ export function Sidebar() {
 
 export function MobileNav() {
   return (
-    <nav className="flex md:hidden items-center gap-1 border-b border-gray-200 bg-white px-3 py-2 overflow-x-auto shrink-0">
-      <span className="text-sm font-bold text-gray-900 pr-2 shrink-0">TaskMgmt</span>
+    <nav className="flex md:hidden items-center gap-1 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 overflow-x-auto shrink-0">
+      <span className="text-sm font-bold text-gray-900 dark:text-gray-100 pr-2 shrink-0">TaskMgmt</span>
       <div className="flex-1" />
       <SidebarLink href="/kanban" icon={<KanbanIcon />} label="Kanban" />
       <SidebarLink href="/projects" icon={<ProjectsIcon />} label="Projects" />
       <SidebarLink href="/archive" icon={<ArchiveIcon />} label="Archive" />
       <SidebarLink href="/settings" icon={<SettingsIcon />} label="Settings" />
+      <ThemeToggle compact />
     </nav>
   );
 }

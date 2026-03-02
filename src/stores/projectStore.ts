@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import type { Project, ProjectCreate, ProjectUpdate, ProjectWithProgress } from '@/types/project';
 import { TaskStatus } from '@/types/task';
 import { getProjectRepository } from '@/repositories';
-import { generateId, nowISO } from '@/lib/utils';
+import { generateId, nowISO, randomProjectColor } from '@/lib/utils';
 import { useTaskStore } from './taskStore';
 
 interface ProjectState {
@@ -36,6 +36,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       id: generateId(),
       name: input.name,
       description: input.description,
+      color: input.color ?? randomProjectColor(),
       clientIds: input.clientIds,
       createdAt: now,
       completedAt: null,
